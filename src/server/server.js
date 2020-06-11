@@ -59,13 +59,16 @@ server.get("/gatos/:id", async (req, res) => {
 server.put("/gatos/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { name } = req.body;
+    const { name } = req.body.cat_name;
+    const { age } = req.body.cat_age;
+
     const updateTodo = await pool.query(
-      "UPDATE gatos SET cat_name = $1 WHERE cat_id = $2",
-      [name, id]
+      "UPDATE gatos SET cat_name = $1, cat_age = $2 WHERE cat_id = $3",
+      [name,age, id]
     );
 
     res.json("Todo was updated!");
+    console.log('actualizado');
   } catch (err) {
     console.error(err.message);
   }

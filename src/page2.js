@@ -15,8 +15,6 @@ const Page2 = () => {
         body: JSON.stringify({catname,catage})
         
       });
-      console.log('****************my body '+ JSON.stringify(response.body));
-
       window.location = "/path2";
     } catch (err) {
       console.error(err.message);
@@ -25,23 +23,23 @@ const Page2 = () => {
 
   return (
     <Fragment>
-      <h1 className="text-center mt-5">Pern Todo List</h1>
+      <h1 className="text-center mt-5">Gatos Registrados</h1>
       <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+        <label htmlFor="exampleFormControlInput1">Nombre </label>
         <input
           type="text"
           className="form-control"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <br></br>
+        <label htmlFor="exampleFormControlInput1">Edad</label>
         <input
           type="text"
           className="form-control"
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-         <br></br>
-        <button className="btn btn-success">Add</button>
+        <button className="btn btn-success"> Insertar</button>
       </form>
       <SnD/>
     </Fragment>

@@ -1,21 +1,21 @@
 import React, { Fragment, useState } from "react";
 const Edit = ({ todo }) => {
   const [name, setName] = useState(todo.cat_name);
-  console.log('**********name :'+ name);
+  const [age, setAge] = useState(todo.cat_age);
   //edit description function
   const updateName = async (e) => {
     e.preventDefault();
     try {
-      const body = { name };
+      const cat_name = { name };
+      const cat_age = { age };
       const response = await fetch(
-        `http://localhost:5000/todos/${todo.cat_id}`,
+        `http://localhost:5000/gatos/${todo.cat_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
+          body: JSON.stringify({cat_name,cat_age})
         }
       );
-
       window.location = "/path2";
     } catch (err) {
       console.error(err.message);
@@ -24,6 +24,8 @@ const Edit = ({ todo }) => {
 
   return (
     <Fragment>
+       
+        
       <button
         type = "button"
         className = "btn btn-warning"
@@ -50,6 +52,13 @@ const Edit = ({ todo }) => {
                 value={name}
                 onChange={e => setName(e.target.value)}/>
             </div>
+            <div className="modal-body">
+              <input
+                type="text"
+                className="form-control"
+                value={age}
+                onChange={e => setAge(e.target.value)}/>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -69,6 +78,7 @@ const Edit = ({ todo }) => {
           </div>
         </div>
       </div>
+        
     </Fragment>
   );
 };
