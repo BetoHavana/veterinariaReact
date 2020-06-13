@@ -23,24 +23,33 @@ const Page2 = () => {
 
   return (
     <Fragment>
+      <h1 className="text-center mt-5">Registro de Gatos</h1>
+      <form onSubmit={onSubmitForm}>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlInput1">Nombre </label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Michi"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlInput1">Edad</label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleFormControlInput1"
+              placeholder="1"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+          </div>
+          <button className="btn btn-success"> Insertar</button>
+        </form>
       <h1 className="text-center mt-5">Gatos Registrados</h1>
-      <form className="d-flex mt-5" onSubmit={onSubmitForm}>
-        <label htmlFor="exampleFormControlInput1">Nombre </label>
-        <input
-          type="text"
-          className="form-control"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label htmlFor="exampleFormControlInput1">Edad</label>
-        <input
-          type="text"
-          className="form-control"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-        <button className="btn btn-success"> Insertar</button>
-      </form>
       <SnD/>
     </Fragment>
   );
