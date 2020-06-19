@@ -9,7 +9,7 @@ const ShowNDelete = () => {
 
   const deleteTodo = async id => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/gatos/${id}`, {
+      const deleteTodo = await fetch(`/gatos/${id}`, {
         method: "DELETE"
       });
 
@@ -21,7 +21,7 @@ const ShowNDelete = () => {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/gatos");
+      const response = await fetch("/gatos");
       const jsonData = await response.json();
 
       setTodos(jsonData);

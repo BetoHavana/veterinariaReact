@@ -9,7 +9,7 @@ const Edit = ({ todo }) => {
       const cat_name = { name };
       const cat_age = { age };
       const response = await fetch(
-        `http://localhost:5000/gatos/${todo.cat_id}`,
+        `/gatos/${todo.cat_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

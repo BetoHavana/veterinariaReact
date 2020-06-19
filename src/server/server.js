@@ -26,7 +26,17 @@ server.post("/gatos", async (req, res) => {
     console.error(err.message);
   }
 });
+//create table gatos
+server.post("/create", async (req, res) => {
+  try {
+    const newTodo = await pool.query(
+      "CREATE TABLE gatos (cat_id INT GENERATED ALWAYS AS IDENTITY,cat_name VARCHAR  NULL,cat_age VARCHAR NULL)");
 
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 //get all todos
 
 server.get("/gatos", async (req, res) => {

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import SnD from './Show&Delete';
 const Page2 = () => {
-
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const onSubmitForm = async (e) => {
@@ -9,7 +8,7 @@ const Page2 = () => {
     try {
       const catname = {name};
       const catage = {age};
-      const response = await fetch("http://localhost:5000/gatos", {
+      const response = await fetch("/gatos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({catname,catage})
@@ -20,7 +19,6 @@ const Page2 = () => {
       console.error(err.message);
     }
   };
-
   return (
     <Fragment>
       <h1 className="text-center mt-5">Registro de Gatos</h1>
